@@ -52,7 +52,6 @@ String a,b,c,d,e,f,xx,yy,cc,co,coo,ttt;
 #define motor1 D0
 #define motor2 D4
 
-
 void setup() {
 
  pinMode(motor1, OUTPUT);
@@ -60,7 +59,6 @@ void setup() {
 
  Wire.begin();  
  oled.init();
-
 
  Serial.begin(9600);
 
@@ -85,6 +83,7 @@ void setup() {
 
    delay(500);
  }
+ 
  Serial.println();
  Serial.print("connected: ");
  oled.clearDisplay();
@@ -101,7 +100,6 @@ delay(1000);
 digitalWrite(motor1, LOW); 
 delay(1000);
 
-
 digitalWrite(motor2, HIGH);
 
 delay(1000);     
@@ -109,8 +107,6 @@ digitalWrite(motor2, LOW);
 delay(1000);
 
 timeClient.begin();
-
-
 
 }
 
@@ -136,7 +132,6 @@ void read(){
 
  }
 
- 
 //print the sensors values in LED display
  void display(){
 
@@ -207,11 +202,10 @@ void read(){
 
    }
 
-   
 //   send data to the Firebase realtime database
    void sent_fire_base(){
 //    Firebase.pushString("/DHT11/Temperature", fireTemp); 
-Firebase.setString("Variable/"+ +"/rain_sensor",a +"%");
+//    Firebase.setString("Variable/+" "+/rain_sensor",a +"%");
      Firebase.setString("Variable/"+cc+"/rain_sensor",a +"%");
      Firebase.setString("Variable/"+cc+"/water_sensor_1",b +"%");
      Firebase.setString("Variable/"+cc+"/ldr_sensor",c +"%");
@@ -227,7 +221,6 @@ Firebase.setString("Variable/"+ +"/rain_sensor",a +"%");
 
      delay(500);
      }
-
 
 void loop() {
  countt = 0;
@@ -249,8 +242,6 @@ display();
  oled.putString("-Sending Data-");  
  uuu++;
  cc = String(uuu);
-
-
 
 if(data1 < 50 || count > 0) {
  digitalWrite(motor1, HIGH);
