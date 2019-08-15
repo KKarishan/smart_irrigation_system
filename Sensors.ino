@@ -21,7 +21,7 @@ Adafruit_BMP085 bmp;
 //get time through the wifi connection
 // Define NTP Client to get time
 WiFiUDP ntpUDP;
-NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 19800, 60000); //initalize the time zone and add +5:30 x 60 x 60 
+NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 19800, 60000); //initalize the time zone and add +5:30 x 60 x 60 - Sri Lanka
 
 // dht11 temperature and humidity sensor library 
 #include "DHT.h"     
@@ -33,6 +33,7 @@ DHT dht(dht_dpin, DHTTYPE);
 
 String a,b,c,d,e,f,xx,yy,cc,co,coo,ttt;
 
+// SSD1306 OLED Driver Library.
 #include <ACROBOTIC_SSD1306.h>
 
  float data1, data2, data3;
@@ -144,7 +145,7 @@ void read(){
   xx = h;
   yy = t;
   
-// Displaying rain sensor value
+// Displaying rain sensor value in LED dispaly
   oled.setTextXY(0,0);  
   oled.putString("-Rain Sensor-");  
   oled.setTextXY(4,3);         
@@ -152,7 +153,7 @@ void read(){
   delay(1000);
   oled.clearDisplay();
   
-// Displaying soil moisture sensor 01 value
+// Displaying soil moisture sensor 01 value in LED dispaly
   oled.setTextXY(0,0);   
   oled.putString("-water Sensor_1-");  
   oled.setTextXY(4,3);         
@@ -160,7 +161,7 @@ void read(){
   delay(1000);
   oled.clearDisplay();
   
-// Displaying Light sensor value
+// Displaying Light sensor value in LED dispaly
   oled.setTextXY(0,0);   
   oled.putString("-LDR Sensor-");  
   oled.setTextXY(4,3);         
@@ -168,7 +169,7 @@ void read(){
   delay(1000);
   oled.clearDisplay();
   
-// Displaying soil moisture sensor 02 value
+// Displaying soil moisture sensor 02 value in LED dispaly
   oled.setTextXY(0,0);   
   oled.putString("-water Sensor_2-");  
   oled.setTextXY(4,3);         
@@ -176,7 +177,7 @@ void read(){
   delay(1000);
   oled.clearDisplay();
   
-// Displaying temperature sensor value
+// Displaying temperature sensor value in LED dispaly
   oled.setTextXY(0,0);   
   oled.putString("-temp Sensor-");  
   oled.setTextXY(4,3);         
@@ -184,7 +185,7 @@ void read(){
   delay(1000); 
   oled.clearDisplay();
   
-// Displaying pressure sensor value
+// Displaying pressure sensor value in LED dispaly
   oled.setTextXY(0,0);   
   oled.putString("-preasure Sensor-");  
   oled.setTextXY(4,3);         
@@ -192,7 +193,7 @@ void read(){
   delay(1000);
   oled.clearDisplay();
   
-// Displaying humidity sensor value
+// Displaying humidity sensor value in LED dispaly
   oled.setTextXY(0,0);   
   oled.putString("-humadity Sensor-");  
   oled.setTextXY(4,3);         
